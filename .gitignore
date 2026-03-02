@@ -1,18 +1,40 @@
+# ===============================
 # CLion / JetBrains
+# ===============================
 .idea/
 cmake-build-*/
 out/
 
-# macOS
+# ===============================
+# macOS system files
+# ===============================
 .DS_Store
 
-# Build outputs
+# ===============================
+# C++ build files
+# ===============================
 *.o
+*.obj
 *.a
 *.so
 *.dylib
 *.exe
 
-# Optional: SFML folder in starter (we don't want to upload these big libs)
-SFML/lib/
-SFML/bin/
+# ===============================
+# CMake generated files
+# ===============================
+CMakeFiles/
+CMakeCache.txt
+Makefile
+cmake_install.cmake
+compile_commands.json
+
+# ===============================
+# SFML (ignore bundled version)
+# ===============================
+SFML/
+
+# ===============================
+# Optional
+# ===============================
+*.log
