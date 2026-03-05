@@ -188,8 +188,14 @@ void MyImage::filterGreen()
 }
 
 
-void MyImage::filterBlue() {
+void MyImage::filterBlue()
+{
     cout << "Filter Blue" << endl;
+
+    for (auto &p : this->pixels) {
+        p.r = 0;
+        p.g = 0;
+    }
 }
 
 void MyImage::greyScale()
