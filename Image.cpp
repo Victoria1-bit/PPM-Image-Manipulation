@@ -247,13 +247,65 @@ void MyImage::flipVertical() {
     }
 }
 void MyImage::advancedFeature1() {
-    cout << "Advanced Feature 1" << endl;
+    cout << "Rotate 90 Degrees" << endl;
+
+    int w = static_cast<int>(this->size.x);
+    int h = static_cast<int>(this->size.y);
+
+    vector<RGB> newPixels(w * h);
+
+    for (int y = 0; y < h; y++) {
+        for (int x = 0; x < w; x++) {
+
+            int oldIndex = (y * w) + x;
+
+            int newX = y;
+            int newY = w - 1 - x;
+
+            int newIndex = (newY * h) + newX;
+
+            newPixels[newIndex] = this->pixels[oldIndex];
+        }
+    }
+
+    this->pixels = newPixels;
+
+    float temp = this->size.x;
+    this->size.x = this->size.y;
+    this->size.y = temp;
 }
 
 void MyImage::advancedFeature2() {
-    cout << "Advanced FEature 2" << endl;
-}
+    cout << "Mirror Image" << endl;
 
+    int w = static_cast<int>(this->size.x);
+    int h = static_cast<int>(this->size.y);
+
+    for (int y = 0; y < h; y++) {
+        for (int x = 0; x < w / 2; x++) {
+
+            int leftIndex = (y * w) + x;
+            int rightIndex = (y * w) + (w - 1 - x);
+
+            this->pixels[rightIndex] = this->pixels[leftIndex];
+        }
+    }
+}
 void MyImage::advancedFeature3() {
-    cout << "Advanced Feature 3" << endl;
+    cout << "Sepia Filter" << endl;
+
+    for (auto &p : this->pixels) {
+
+        int newR = (0.393 * p.r) + (0.769 * p.g) + (0.189 * p.b);
+        int newG = (0.349 * p.r) + (0.686 * p.g) + (0.168 * p.b);
+        int newB = (0.272 * p.r) + (0.534 * p.g) + (0.131 * p.b);
+
+        if (newR > 255) newR = 255;
+        if (newG > 255) newG = 255;
+        if (newB > 255) newB = 255;
+
+        p.r = newR;
+        p.g = newG;
+        p.b = newB;
+    }
 }
