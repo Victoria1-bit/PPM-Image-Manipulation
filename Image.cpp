@@ -197,8 +197,20 @@ void MyImage::greyScale()
 
 void MyImage::flipHorizontal() {
     cout << "Flip Horizontal" << endl;
-}
 
+    int w = static_cast<int>(this->size.x);
+    int h = static_cast<int>(this->size.y);
+
+    // swap pixels left<->right for each row
+    for (int y = 0; y < h; y++) {
+        for (int x = 0; x < w / 2; x++) {
+            int leftIndex  = (y * w) + x;
+            int rightIndex = (y * w) + (w - 1 - x);
+
+            std::swap(this->pixels[leftIndex], this->pixels[rightIndex]);
+        }
+    }
+}
 void MyImage::flipVertical() {
     cout << "Flip Vertical" << endl;
 }
