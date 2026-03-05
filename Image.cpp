@@ -177,9 +177,16 @@ void MyImage::filterRed()
     }
 }
 
-void MyImage::filterGreen() {
+void MyImage::filterGreen()
+{
     cout << "Filter Green" << endl;
+
+    for (auto &p : this->pixels) {
+        p.r = 0;
+        p.b = 0;
+    }
 }
+
 
 void MyImage::filterBlue() {
     cout << "Filter Blue" << endl;
