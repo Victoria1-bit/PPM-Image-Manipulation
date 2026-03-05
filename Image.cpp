@@ -213,8 +213,21 @@ void MyImage::flipHorizontal() {
 }
 void MyImage::flipVertical() {
     cout << "Flip Vertical" << endl;
-}
 
+    int w = static_cast<int>(this->size.x);
+    int h = static_cast<int>(this->size.y);
+
+    // swap top row with bottom row
+    for (int y = 0; y < h / 2; y++) {
+        for (int x = 0; x < w; x++) {
+
+            int topIndex = (y * w) + x;
+            int bottomIndex = ((h - 1 - y) * w) + x;
+
+            std::swap(this->pixels[topIndex], this->pixels[bottomIndex]);
+        }
+    }
+}
 void MyImage::advancedFeature1() {
     cout << "Advanced Feature 1" << endl;
 }
