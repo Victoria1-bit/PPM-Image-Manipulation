@@ -1,9 +1,26 @@
-This is the start project for Continuous Assessment 1 in C++.
+# PPM Image Manipulation Project
 
-When you download the project you should be able to run it "out of the box". 
+This project is a C++ application that loads and manipulates images in the **PPM (Portable Pixmap)** format.  
+The program uses **SFML** to display the image and provides several image processing features through a simple GUI.
 
-If you have issues with SFML make sure you are using the correct version for your build system. the SFML is version 3.0.2 for GCC. When you download the correct version replace the contents of
-The SFML folder with the correct version.
+## Features
 
-i.e. if you are using Mac, for example, you will need to get the SFML build for mac from https://www.sfml-dev.org/download/sfml/3.0.2/
+The application allows the user to:
 
+- Load and display a PPM image
+- Save the modified image
+- Apply colour filters:
+  - Red filter
+  - Green filter
+  - Blue filter
+- Convert the image to **Greyscale**
+- **Flip the image horizontally**
+- **Flip the image vertically**
+- Advanced features:
+  - Rotate image 90 degrees
+  - Mirror image
+  - Sepia filter
+
+## How it Works
+
+The image is stored as a **vector of RGB structs**, where each struct represents one pixel:
