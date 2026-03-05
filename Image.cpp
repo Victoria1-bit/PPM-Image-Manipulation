@@ -169,7 +169,12 @@ void MyImage::save()
 
 void MyImage::filterRed()
 {
-   cout << "Filter Red" << endl;
+    cout << "Filter Red" << endl;
+
+    for (auto &p : this->pixels) {
+        p.g = 0;
+        p.b = 0;
+    }
 }
 
 void MyImage::filterGreen() {
